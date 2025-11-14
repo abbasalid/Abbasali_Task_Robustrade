@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Abbasali_Task_Robustrade</string>
+    <string name="news">GNews</string>
+    <string name="default_error_icon">Default error icon</string>
+    <string name="close_error">Close error</string>
+
+    <string name="details">Details</string>
+
+</resources>

@@ -1,1 +1,38 @@
-# Abbasali_Task_Robustrade
+📈 News Application
+
+A sample News application to view your holdings, built with Kotlin, Jetpack Compose, and Clean
+MVVM Architecture.
+
+---
+
+🛠️ Tech Stack
+
+This app demonstrates modern Android development best practices:
+
+📱 UI → Jetpack Compose
+
+🏗️ Architecture → MVVM + Clean
+
+⚡ Concurrency → Kotlin Coroutines + Flow
+
+💉 Dependency Injection → Dagger Hilt
+
+🧪 Testing → JUnit, MockK
+
+---
+
+📂 Project Structure
+
+The project follows Clean MVVM Architecture. All main layers are inside the app/ module:
+app/
+```bash
+app/                
+├─ 🏢 Application.kt        # Main Application class
+├─ data/                   # 📦 Repositories implementation, Response Models, Api service
+├─ domain/                 # 🎯 UseCases, UseCases implementation, Domain models, Repository interfaces
+└─ presentation/           # 🖥️ Activity, ViewModel, Compose screens
+```
+
+---
+
+📱 Screen
