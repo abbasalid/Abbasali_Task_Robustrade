@@ -131,5 +131,4 @@ data class UIState(
     val isLoading: Boolean = true,
     val error: String? = null,
     val isEmpty: Boolean = false
-
 )
