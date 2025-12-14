@@ -38,36 +38,34 @@ jobs:
           name: unit_test_report
           path: app/build/reports/tests/testDebugUnitTest/
 
-  instrumentation-test:
-    needs: [ unit-test ]
-    runs-on: macos-latest
+instrumentation-test:
+  needs: [unit-test]
+  runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Set up Gradle cache
-        uses: gradle/actions/setup-gradle@v4
+    - name: Set up Gradle
+      uses: gradle/actions/setup-gradle@v4
 
-      - name: Run Espresso tests
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 30
-          target: google_apis
-          arch: x86_64
-          profile: Nexus 6
-          emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect
-          disable-animations: true
-          emulator-boot-timeout: 900
-          script: |
-            adb wait-for-device
-            adb devices
-            ./gradlew connectedDebugAndroidTest
+    - name: Run Espresso tests
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: 33
+        target: google_apis
+        arch: x86_64
+        profile: pixel_4
+        emulator-options: -no-window -no-audio -no-boot-anim
+        disable-animations: true
+        emulator-boot-timeout: 600
+        script: ./gradlew connectedDebugAndroidTest
 
-      - name: Upload test report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: instrumentation_test_report
-          path: app/build/reports/androidTests/connected/
+    - name: Upload test report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: instrumentation_test_report
+        path: app/build/reports/androidTests/connected/
+
 
